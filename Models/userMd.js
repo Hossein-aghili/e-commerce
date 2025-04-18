@@ -13,7 +13,7 @@ const userSchama = new mongoose.Schama({
     favoriteProductIds: {
         type: [{
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'ProductId'
+            ref: 'Product'
         }],
         default: []
 
