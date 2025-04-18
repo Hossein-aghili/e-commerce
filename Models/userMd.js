@@ -18,6 +18,14 @@ const userSchama = new mongoose.Schama({
         default: []
 
     },
+    boughtProductIds: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Product'
+        }],
+        default: []
+
+    },
     password: {
         type: String,
     },
