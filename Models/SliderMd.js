@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
-const sliderSchama = new mongoose.Schama({
-
+const sliderSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, 'title is required'],
@@ -16,8 +15,9 @@ const sliderSchama = new mongoose.Schama({
         default: 'home'
     },
 
+},{
     timestamps: true
 })
 
-export const Slider = mongoose.model('Slider', sliderSchama)
+export const Slider = mongoose.model('Slider', sliderSchema)
 export default Slider

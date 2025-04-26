@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const variantSchama = new mongoose.Schama({
+const variantSchema = new mongoose.Schema({
 
     title: {
         type: String,
@@ -13,8 +13,10 @@ const variantSchama = new mongoose.Schama({
         required: [true, 'value is required'],
     },
 
+
+},{
     timestamps: true
 })
 
-export const Variant = mongoose.model('Variant', variantSchama)
+export const Variant = mongoose.model('Variant', variantSchema)
 export default Variant

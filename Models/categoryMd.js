@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
-const categorySchama = new mongoose.Schama({
-
+const categorySchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, 'title is required'],
@@ -14,8 +13,10 @@ const categorySchama = new mongoose.Schama({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category'
     },
+    
+},{
     timestamps: true
 })
 
-export const Category = mongoose.model('Category', categorySchama)
+export const Category = mongoose.model('Category', categorySchema)
 export default Category

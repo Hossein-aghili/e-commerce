@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
-const BrandSchama = new mongoose.Schama({
-
+const BrandSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true, 'title is required'],
@@ -14,5 +13,5 @@ const BrandSchama = new mongoose.Schama({
     timestamps: true
 })
 
-export const Brand = mongoose.model('Brand', BrandSchama)
+export const Brand = mongoose.model('Brand', BrandSchema)
 export default Brand
