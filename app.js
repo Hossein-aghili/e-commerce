@@ -21,7 +21,7 @@ import sliderRouter from './Routes/Slider.js'
 import userRouter from './Routes/user.js'
 import variantRouter from './Routes/variant.js'
 import { isLogin } from './Middlewares/isLogin.js'
-
+import cors from 'cors'
 
 const __filename=fileURLToPath(import.meta.url)
 export const __dirname=path.dirname(__filename)
