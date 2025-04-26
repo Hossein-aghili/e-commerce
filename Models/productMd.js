@@ -1,14 +1,65 @@
 import mongoose from 'mongoose';
-
+informationSchema = new mongoose.Schema({
+    name:{
+        type: String,
+        required:[true, 'name is required'],
+        trim:true
+    },
+    value:{
+        type: String,
+        required:[true, 'name is required'],
+        trim:true
+    },
+},{_id:false});
 const ProductSchema = new mongoose.Schema({
-    title: {
+    name:{
         type: String,
-        required: [true, 'title is required'],
+        required:[true, 'name is required'],
+        trim:true
     },
-    image: {
+    description:{
         type: String,
-        required: [true, 'image is required'],
+        required:[true, 'name is required'],
+        trim:true
     },
+    information:{
+        type: [informationSchema],
+        default: []
+    },
+    images:{
+        type: [String],
+        default: []
+    },
+    categoryIds:{
+        type:[{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Category'
+        }]
+    },
+    brandId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Brand',
+        required:[true, 'Brand is required'],
+    },
+    isActive:{
+        type: Boolean,
+        default: true
+    },
+    rate:{
+        type: Number,
+        default: 0,
+        min: 0,
+        max: 5
+    },
+    rateCount:{
+        type: Number,
+        default: 0
+    },
+    defaultProductVariant:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'ProductVariant'
+    }
+
 }, {
     timestamps: true
 });
