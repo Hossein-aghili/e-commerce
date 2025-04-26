@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const addressSchama = new mongoose.Schama({
+const addressSchema = new mongoose.Schema({
 
     city: {
         type: String,
@@ -39,5 +39,5 @@ const addressSchama = new mongoose.Schama({
     timestamps: true
 })
 
-export const Address = mongoose.model('Address', addressSchama)
+export const Address = mongoose.model('Address', addressSchema)
 export default Address

@@ -1,65 +1,64 @@
 import mongoose from 'mongoose';
-informationSchema = new mongoose.Schema({
-    name:{
+
+const informationSchema = new mongoose.Schema({
+    name: {
         type: String,
-        required:[true, 'name is required'],
-        trim:true
+        required: [true, 'name is required'],
+        trim: true
     },
-    value:{
+    value: {
         type: String,
-        required:[true, 'name is required'],
-        trim:true
-    },
-},{_id:false});
+        required: [true, 'value is required'],
+        trim: true
+    }
+}, {_id: false});
+
 const ProductSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
-        required:[true, 'name is required'],
-        trim:true
+        required: [true, 'name is required'],
+        trim: true
     },
-    description:{
+    description: {
         type: String,
-        required:[true, 'name is required'],
-        trim:true
+        required: [true, 'description is required'],
+        trim: true
     },
-    information:{
+    information: {
         type: [informationSchema],
         default: []
     },
-    images:{
+    images: {
         type: [String],
         default: []
     },
-    categoryIds:{
-        type:[{
-            type:mongoose.Schema.Types.ObjectId,
-            ref:'Category'
-        }]
+    categoryIds: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category'
+    }],
+    brandId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Brand',
+        required: [true, 'Brand is required']
     },
-    brandId:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Brand',
-        required:[true, 'Brand is required'],
-    },
-    isActive:{
+    isActive: {
         type: Boolean,
         default: true
     },
-    rate:{
+    rate: {
         type: Number,
         default: 0,
         min: 0,
         max: 5
     },
-    rateCount:{
+    rateCount: {
         type: Number,
         default: 0
     },
-    defaultProductVariant:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'ProductVariant'
+    defaultProductVariant: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'ProductVariant'
     }
-
 }, {
     timestamps: true
 });
